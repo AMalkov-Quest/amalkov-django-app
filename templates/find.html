@@ -4,6 +4,10 @@
 		<script type="text/javascript" src="/static/js/jquery-1.7.2.min.js"></script>
 	</head>
 	<body>
-		OK
+	<ol>
+	{% for result in results %}
+	<li>{{ result }}</li>
+	{% endfor %}
+	</ol>
 	</body>
 </html>	

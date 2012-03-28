@@ -1,28 +1,17 @@
-import os
 from django.shortcuts import render_to_response
 from django.http import HttpResponse
-import urllib, urllib2
+import engine
 
 def default(request):
-	return render_to_response('default.html')
-
-def proxy(request):
-	cwd = os.path.dirname(__file__)
-	path = os.path.join(cwd, 'html', 'www.bn.ru.html')
-	#path = os.path.join(cwd, 'html', 'zap_fl_w.phtml.html')
-	f = open(path)
-	data = f.read()
-	return HttpResponse(data)
+	metro_list = engine.getmetro()
+	return render_to_response('default.html', locals())
 
 def find(request):
-	return render_to_response('find.html')
+	rfrom = request.REQUEST.get('rfrom')
+	rto = request.REQUEST.get('rto')
+	pfrom = request.REQUEST.get('pfrom')
+	pto = request.REQUEST.get('pto')
+	metro = request.REQUEST.get('metro')
+	results = engine.find(rfrom, rto, pfrom, pto, metro)
+	return render_to_response('find.html', locals())
 
-def _proxy(request):
-	configure()
-	data = urllib2.urlopen('http://www.bn.ru/zap_fl_w.phtml').read()
-	return HttpResponse(data)
-
-def configure():
-	proxy_handler = urllib2.ProxyHandler({'http': '10.30.34.42:8010'})
-	opener = urllib2.build_opener(proxy_handler)
-	urllib2.install_opener(opener)

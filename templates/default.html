@@ -7,9 +7,18 @@
 	<body>
 		<div style="text-align: center" title="http://www.bn.ru">
 			<form action="find" id="find">      
-				Комнат <input type="text" id="rooms"/><br>
-				Цена <input type="text" id="price"/><br> 
-				<select id="metro" size="19" multiple>
+				Комнат 
+				от <input type="text" name="rfrom"/>
+				до <input type="text" name="rto"/>
+				<br>
+				Цена  
+				от <input type="text" name="pfrom"/>
+				до <input type="text" name="pto"/>
+				<br> 
+				<select name="metro" size="19" multiple>
+				{% for option in metro_list %}
+				<option value={{ option.value }}>{{ option.name }}</option>
+				{% endfor %}
 				</select><br>
 				<input type="submit" value="Найти"/>
 			</form>
