@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<title>django app</title>
+		<script type="text/javascript" src="/static/js/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript" src="/static/js/main.js"></script>
+	</head>
+	<body>
+		<div style="text-align: center" title="http://www.bn.ru">
+			<form action="find" id="find">      
+				Комнат <input type="text" id="rooms"/><br>
+				Цена <input type="text" id="price"/><br> 
+				<select id="metro" size="19" multiple>
+				</select><br>
+				<input type="submit" value="Найти"/>
+			</form>
+		</div>
+		<iframe id="frame" name="frame" style="display:none;width:99%;">
+			<html>
+				<head>
+				</head>
+				<body>
+				</body>
+			</html>
+	    </iframe>
+	</body>
+</html>	
