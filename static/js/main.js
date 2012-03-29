@@ -1,10 +1,20 @@
-/*$(function(){
-	$('#frame').attr('src', '/proxy');	
-	$('#frame').load(function() {
-		window._$ = window.frames[0].window.jQuery;
-		_$('select#metro option').each(function(i, el){
-			console.log(_$(el).text());
-			$('select#metro').append(el)
-		});
+$(function(){
+	$('form#find').submit(function() {
+		send(
+			$(this).attr('action'),
+			$(this).serialize() 
+		);
+		return false;
 	});
-});*/
+});
+
+function send(url, data) {
+	$.ajax({
+		type: "GET",
+		url: "",
+		data: data,
+		success: function() {
+			alert('OK');
+		}
+	});
+};

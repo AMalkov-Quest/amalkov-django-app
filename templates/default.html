@@ -7,29 +7,29 @@
 	<body>
 		<div style="text-align: center" title="http://www.bn.ru">
 			<form action="find" id="find">      
-				Комнат 
-				от <input type="text" name="rfrom"/>
-				до <input type="text" name="rto"/>
-				<br>
-				Цена  
-				от <input type="text" name="pfrom"/>
-				до <input type="text" name="pto"/>
-				<br> 
-				<select name="metro" size="19" multiple>
-				{% for option in metro_list %}
-				<option value={{ option.value }}>{{ option.name }}</option>
-				{% endfor %}
-				</select><br>
-				<input type="submit" value="Найти"/>
+				<table align="center">
+					<tr>
+						<td>Комнат</td>
+						<td>от <input type="text" name="rfrom"/></td>
+						<td>до <input type="text" name="rto"/></td>
+					</tr>
+					<tr>
+						<td>Цена</td>  
+						<td>от <input type="text" name="pfrom"/></td>
+						<td>до <input type="text" name="pto"/></td>
+					</tr> 
+					<tr>
+						<td colspan="3" align="center">
+						<select name="metro" size="19" multiple>
+						{% for option in metro_list %}
+						<option value={{ option.value }}>{{ option.name }}</option>
+						{% endfor %}
+						</select><br>
+						<input type="submit" value="Найти"/>
+						</td>
+					</tr>
+				</table>
 			</form>
 		</div>
-		<iframe id="frame" name="frame" style="display:none;width:99%;">
-			<html>
-				<head>
-				</head>
-				<body>
-				</body>
-			</html>
-	    </iframe>
 	</body>
 </html>	
