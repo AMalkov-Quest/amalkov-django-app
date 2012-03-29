@@ -1,13 +1,22 @@
 <html>
 	<head>
 		<title>find</title>
+		<link rel="stylesheet" type="text/css" href="/static/css/main.css">	
 		<script type="text/javascript" src="/static/js/jquery-1.7.2.min.js"></script>
 	</head>
 	<body>
-	<ol>
+	<table border="0">
 	{% for result in results %}
-	<li>{{ result }}</li>
+	<tr class="{% cycle 'odd' 'even' %}">
+		<td>{{ result.rooms }}</td>
+		<td>{{ result.address }}</td>
+		<td>{{ result.level }}</td>
+		<td>{{ result.building }}</td>
+		<td>{{ result.common }}</td>
+		<td>{{ result.living }}</td>
+		<td>{{ result.kitchen }}</td>
+	</tr>
 	{% endfor %}
-	</ol>
+	</table>
 	</body>
 </html>	
