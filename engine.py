@@ -44,8 +44,12 @@ def mkresult(el, delimiter='td'):
 
 	return obj
 
-def find(rfrom, rto, pfrom, pto, metro):
-	url = 'http://www.bn.ru/zap_fl.phtml?kkv1=%s&kkv2=%s&price1=%s&price2=%s&so1=&so2=&sk1=&sk2=&type[]=1&sorttype=0&sort_ord=0&metro[]=%s&text=' % (rfrom, rto, pfrom, pto, metro)
+def getSearchUrl(args):
+	return 'http://www.bn.ru/zap_fl.phtml?kkv1=%s&kkv2=%s&price1=%s&price2=%s&so1=&so2=&sk1=&sk2=&type[]=1&sorttype=0&sort_ord=0&metro[]=%s&text=' \
+			% (args.rfrom, args.rto, args.pfrom, args.pto, args.metro) 
+
+def find(args):
+	url = getSearchUrl(args)
 	pq = PyQuery(url=url, opener=lambda url: load(url))
 	results = pq('table.results tr')
 	header = mkresult(PyQuery(results[0]), 'th')

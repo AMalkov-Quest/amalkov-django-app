@@ -6,15 +6,21 @@ $(function(){
 		);
 		return false;
 	});
+
+	alert('OK');
 });
 
 function send(url, data) {
+	$('body').load(url + '?' + data + '&js=true');
+};
+
+function _send(url, data) {
 	$.ajax({
 		type: "GET",
-		url: "",
-		data: data,
-		success: function() {
-			alert('OK');
+		url: url,
+		data: data+'&js=true',
+		success: function(data) {
+			alert(data);
 		}
 	});
 };

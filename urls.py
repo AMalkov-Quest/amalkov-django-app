@@ -6,7 +6,6 @@ import views, settings
 
 urlpatterns = patterns('',
 	('^$', 'views.default'),
-	(r'^proxy/$', 'views.proxy'),
 	(r'^find/$', 'views.find'),
 )
 
