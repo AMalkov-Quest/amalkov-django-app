@@ -6,8 +6,6 @@ $(function(){
 		);
 		return false;
 	});
-
-	alert('OK');
 });
 
 function send(url, data) {

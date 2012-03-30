@@ -7,7 +7,7 @@ def default(request):
 	metro_list = engine.getmetro()
 	return render_to_response('default.html', locals())
 
-class Args(object):    
+class Args(object):
 	
 	def __init__(self, args):
 		self.args = args
